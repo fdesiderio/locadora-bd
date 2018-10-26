@@ -9,7 +9,7 @@ import java.sql.*;
 public class ExecuteSQL {
     private Connection con;
     
-    public ExecuteSQL(){
+    public ExecuteSQL(Connection con){
         setCon(con);
     }
 
