@@ -27,21 +27,423 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        Cliente = new javax.swing.JMenuItem();
+        Filme = new javax.swing.JMenuItem();
+        DVD = new javax.swing.JMenuItem();
+        Categoria = new javax.swing.JMenuItem();
+        Classificação = new javax.swing.JMenuItem();
+        Funcionario = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        Cliente1 = new javax.swing.JMenuItem();
+        DVD1 = new javax.swing.JMenuItem();
+        Filme1 = new javax.swing.JMenuItem();
+        Categoria1 = new javax.swing.JMenuItem();
+        Classificação1 = new javax.swing.JMenuItem();
+        Funcionario1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        Cliente2 = new javax.swing.JMenuItem();
+        DVD2 = new javax.swing.JMenuItem();
+        Filme2 = new javax.swing.JMenuItem();
+        Categoria2 = new javax.swing.JMenuItem();
+        Classificação2 = new javax.swing.JMenuItem();
+        Funcionario2 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        Cliente3 = new javax.swing.JMenuItem();
+        DVD3 = new javax.swing.JMenuItem();
+        Filme3 = new javax.swing.JMenuItem();
+        Categoria3 = new javax.swing.JMenuItem();
+        Classificação3 = new javax.swing.JMenuItem();
+        Funcionario3 = new javax.swing.JMenuItem();
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jScrollPane1.setViewportView(jEditorPane1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("Locação");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Devolução");
+
+        jButton3.setText("Sair");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/dvd-mount2.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/DVD3.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/sair1.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/locadora.jpg"))); // NOI18N
+
+        jMenu1.setText("Cadastrar");
+
+        Cliente.setText("Cliente");
+        Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Cliente);
+
+        Filme.setText("FIlme");
+        Filme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FilmeActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Filme);
+
+        DVD.setText("DVD");
+        DVD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DVDActionPerformed(evt);
+            }
+        });
+        jMenu1.add(DVD);
+
+        Categoria.setText("Categoria");
+        Categoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CategoriaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Categoria);
+
+        Classificação.setText("Classificação");
+        Classificação.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClassificaçãoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Classificação);
+
+        Funcionario.setText("Funcionario");
+        Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FuncionarioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Funcionario);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Consultar");
+
+        Cliente1.setText("Cliente");
+        Cliente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cliente1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Cliente1);
+
+        DVD1.setText("DVD");
+        DVD1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DVD1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(DVD1);
+
+        Filme1.setText("FIlme");
+        Filme1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Filme1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Filme1);
+
+        Categoria1.setText("Categoria");
+        Categoria1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Categoria1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Categoria1);
+
+        Classificação1.setText("Classificação");
+        Classificação1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Classificação1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Classificação1);
+
+        Funcionario1.setText("Funcionario");
+        Funcionario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Funcionario1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Funcionario1);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Alterar");
+
+        Cliente2.setText("Cliente");
+        Cliente2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cliente2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(Cliente2);
+
+        DVD2.setText("DVD");
+        DVD2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DVD2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(DVD2);
+
+        Filme2.setText("FIlme");
+        Filme2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Filme2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(Filme2);
+
+        Categoria2.setText("Categoria");
+        Categoria2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Categoria2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(Categoria2);
+
+        Classificação2.setText("Classificação");
+        Classificação2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Classificação2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(Classificação2);
+
+        Funcionario2.setText("Funcionario");
+        Funcionario2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Funcionario2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(Funcionario2);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Excluir");
+
+        Cliente3.setText("Cliente");
+        Cliente3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cliente3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(Cliente3);
+
+        DVD3.setText("DVD");
+        DVD3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DVD3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(DVD3);
+
+        Filme3.setText("FIlme");
+        Filme3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Filme3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(Filme3);
+
+        Categoria3.setText("Categoria");
+        Categoria3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Categoria3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(Categoria3);
+
+        Classificação3.setText("Classificação");
+        Classificação3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Classificação3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(Classificação3);
+
+        Funcionario3.setText("Funcionario");
+        Funcionario3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Funcionario3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(Funcionario3);
+
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(jButton1)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel2)
+                        .addGap(3, 3, 3)
+                        .addComponent(jButton2)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel3)
+                        .addGap(3, 3, 3)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel4)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ClienteActionPerformed
+
+    private void FilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FilmeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FilmeActionPerformed
+
+    private void DVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DVDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DVDActionPerformed
+
+    private void CategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CategoriaActionPerformed
+
+    private void ClassificaçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClassificaçãoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ClassificaçãoActionPerformed
+
+    private void FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioActionPerformed
+        
+    }//GEN-LAST:event_FuncionarioActionPerformed
+
+    private void Cliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cliente1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cliente1ActionPerformed
+
+    private void DVD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DVD1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DVD1ActionPerformed
+
+    private void Filme1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filme1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Filme1ActionPerformed
+
+    private void Categoria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Categoria1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Categoria1ActionPerformed
+
+    private void Classificação1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Classificação1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Classificação1ActionPerformed
+
+    private void Funcionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Funcionario1ActionPerformed
+
+    private void Cliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cliente2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cliente2ActionPerformed
+
+    private void DVD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DVD2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DVD2ActionPerformed
+
+    private void Filme2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filme2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Filme2ActionPerformed
+
+    private void Categoria2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Categoria2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Categoria2ActionPerformed
+
+    private void Classificação2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Classificação2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Classificação2ActionPerformed
+
+    private void Funcionario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Funcionario2ActionPerformed
+
+    private void Cliente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cliente3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cliente3ActionPerformed
+
+    private void DVD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DVD3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DVD3ActionPerformed
+
+    private void Filme3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filme3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Filme3ActionPerformed
+
+    private void Categoria3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Categoria3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Categoria3ActionPerformed
+
+    private void Classificação3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Classificação3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Classificação3ActionPerformed
+
+    private void Funcionario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Funcionario3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +481,44 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Categoria;
+    private javax.swing.JMenuItem Categoria1;
+    private javax.swing.JMenuItem Categoria2;
+    private javax.swing.JMenuItem Categoria3;
+    private javax.swing.JMenuItem Classificação;
+    private javax.swing.JMenuItem Classificação1;
+    private javax.swing.JMenuItem Classificação2;
+    private javax.swing.JMenuItem Classificação3;
+    private javax.swing.JMenuItem Cliente;
+    private javax.swing.JMenuItem Cliente1;
+    private javax.swing.JMenuItem Cliente2;
+    private javax.swing.JMenuItem Cliente3;
+    private javax.swing.JMenuItem DVD;
+    private javax.swing.JMenuItem DVD1;
+    private javax.swing.JMenuItem DVD2;
+    private javax.swing.JMenuItem DVD3;
+    private javax.swing.JMenuItem Filme;
+    private javax.swing.JMenuItem Filme1;
+    private javax.swing.JMenuItem Filme2;
+    private javax.swing.JMenuItem Filme3;
+    private javax.swing.JMenuItem Funcionario;
+    private javax.swing.JMenuItem Funcionario1;
+    private javax.swing.JMenuItem Funcionario2;
+    private javax.swing.JMenuItem Funcionario3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
