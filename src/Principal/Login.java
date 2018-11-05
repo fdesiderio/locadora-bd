@@ -127,7 +127,7 @@ public class Login extends javax.swing.JFrame {
                         for (int i = 0; i < 101; i++){
                             jProgressBar1.setValue(i);
                             jProgressBar2.setValue(i);
-                            
+      
                             try {
                                 Thread.sleep(35);
                             } catch (Exception e) {
@@ -135,6 +135,7 @@ public class Login extends javax.swing.JFrame {
                             }
                        
                         }
+                        new Menu().setVisible(true);
                         dispose();
                     }
                     
