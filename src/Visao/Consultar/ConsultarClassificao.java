@@ -9,12 +9,12 @@ package Visao.Consultar;
  *
  * @author Aluno
  */
-public class ConsultarFilme extends javax.swing.JFrame {
+public class ConsultarClassificao extends javax.swing.JFrame {
 
     /**
-     * Creates new form ConsultarFilme
+     * Creates new form ConsultarClassificao
      */
-    public ConsultarFilme() {
+    public ConsultarClassificao() {
         initComponents();
     }
 
@@ -45,7 +45,7 @@ public class ConsultarFilme extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Filme", "RG", "CPF", "Telefone", "Email"
+                "Codigo", "Classificação", "RG", "CPF", "Telefone", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -122,20 +122,20 @@ public class ConsultarFilme extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultarFilme.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarClassificao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultarFilme.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarClassificao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultarFilme.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarClassificao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultarFilme.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarClassificao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultarFilme().setVisible(true);
+                new ConsultarClassificao().setVisible(true);
             }
         });
     }

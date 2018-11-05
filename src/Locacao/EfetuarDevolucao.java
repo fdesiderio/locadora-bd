@@ -7,7 +7,7 @@ package Locacao;
 
 /**
  *
- * @author aluno
+ * @author Aluno
  */
 public class EfetuarDevolucao extends javax.swing.JFrame {
 
