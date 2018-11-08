@@ -5,6 +5,13 @@
  */
 package Principal;
 
+import Visao.Alterar.AlterarCliente;
+import Visao.Cadastrar.CadastrarCategoria;
+import Visao.Cadastrar.CadastrarCliente;
+import Visao.Cadastrar.CadastrarFuncionario;
+import Visao.Consultar.ConsultarCliente;
+import Visao.Excluir.ExcluirCliente;
+
 /**
  *
  * @author aluno
@@ -330,13 +337,14 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(57, Short.MAX_VALUE))
@@ -346,7 +354,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteActionPerformed
-        // TODO add your handling code here:
+        new CadastrarCliente().setVisible(true);
     }//GEN-LAST:event_ClienteActionPerformed
 
     private void FilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FilmeActionPerformed
@@ -358,7 +366,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_DVDActionPerformed
 
     private void CategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaActionPerformed
-        // TODO add your handling code here:
+        new CadastrarCategoria().setVisible(true);
     }//GEN-LAST:event_CategoriaActionPerformed
 
     private void ClassificaçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClassificaçãoActionPerformed
@@ -366,11 +374,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ClassificaçãoActionPerformed
 
     private void FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioActionPerformed
-        
+        new CadastrarFuncionario().setVisible(true);
     }//GEN-LAST:event_FuncionarioActionPerformed
 
     private void Cliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cliente1ActionPerformed
-        // TODO add your handling code here:
+        new ConsultarCliente().setVisible(true);
     }//GEN-LAST:event_Cliente1ActionPerformed
 
     private void DVD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DVD1ActionPerformed
@@ -390,11 +398,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Classificação1ActionPerformed
 
     private void Funcionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario1ActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_Funcionario1ActionPerformed
 
     private void Cliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cliente2ActionPerformed
-        // TODO add your handling code here:
+        new AlterarCliente().setVisible(true);
     }//GEN-LAST:event_Cliente2ActionPerformed
 
     private void DVD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DVD2ActionPerformed
@@ -418,7 +426,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Funcionario2ActionPerformed
 
     private void Cliente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cliente3ActionPerformed
-        // TODO add your handling code here:
+        new ExcluirCliente().setVisible(true);
     }//GEN-LAST:event_Cliente3ActionPerformed
 
     private void DVD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DVD3ActionPerformed

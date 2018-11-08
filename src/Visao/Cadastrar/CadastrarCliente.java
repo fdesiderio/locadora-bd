@@ -22,6 +22,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
      */
     public CadastrarCliente() {
         initComponents();
+        
     }
 
     /**
@@ -260,6 +261,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        
         String nome = jTF_Nome.getText();
         String nascimento = jTF_Nascimento.getText();
         String cep = jTF_CEP.getText();
@@ -273,9 +275,12 @@ public class CadastrarCliente extends javax.swing.JFrame {
         
         if (nome.equals("") || nascimento.equals("") || cep.equals("") || rua.equals("") || numero.equals("")
                 || bairro.equals("") || fone.equals("") || cpf.equals("") || rg.equals("")) {
+        
             JOptionPane.showMessageDialog(null, "nenhum campo pode estar vazio",
                     "Vídeo Locadora", JOptionPane.WARNING_MESSAGE);
-        }else {
+        
+        } else {
+            
             Connection con = Conexao.AbrirConexao();
             ClienteDAO sql = new ClienteDAO(con);
             int n = Integer.parseInt(numero);
@@ -283,14 +288,14 @@ public class CadastrarCliente extends javax.swing.JFrame {
             
             a.setNome(nome);
             a.setNascimento(nascimento);
-            a.setCEP(cep);
-            a.setRua(rua);
-            a.setNumero(n);
-            a.setBairro(bairro);
+            a.setRG(rg);
+            a.setCPF(cpf);
             a.setEmail(email);
             a.setTelefone(fone);
-            a.setCPF(cpf);
-            a.setRG(rg);
+            a.setBairro(bairro);
+            a.setRua(rua);
+            a.setNumero(n);
+            a.setCEP(cep);
             
             sql.Inserir_Cliente(a);
             Conexao.FecharConexao(con);
