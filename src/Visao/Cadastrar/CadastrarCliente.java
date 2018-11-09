@@ -8,6 +8,7 @@ package Visao.Cadastrar;
 import DAO.ClienteDAO;
 import DAO.Conexao;
 import Modelo.Cliente;
+import Principal.Menu;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
@@ -312,6 +313,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
             tfCPF.setText("");
             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso", "Vídeo Locadora", JOptionPane.INFORMATION_MESSAGE);
             dispose();
+            new Menu().setVisible(true);
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 

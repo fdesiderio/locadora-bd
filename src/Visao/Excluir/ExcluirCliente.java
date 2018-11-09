@@ -8,6 +8,7 @@ package Visao.Excluir;
 import DAO.ClienteDAO;
 import DAO.Conexao;
 import Modelo.Cliente;
+import Principal.Menu;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -158,6 +159,7 @@ public class ExcluirCliente extends javax.swing.JFrame {
                 sql.Excluir(a);
                 Conexao.FecharConexao(con);
                 dispose();
+                new Menu().setVisible(true);
             }
         }
     }//GEN-LAST:event_bt_ExcluirActionPerformed

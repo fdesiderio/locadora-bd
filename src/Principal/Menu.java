@@ -10,6 +10,7 @@ import Visao.Cadastrar.CadastrarCategoria;
 import Visao.Cadastrar.CadastrarCliente;
 import Visao.Cadastrar.CadastrarFuncionario;
 import Visao.Consultar.ConsultarCliente;
+import Visao.Consultar.ConsultarFuncionario;
 import Visao.Excluir.ExcluirCliente;
 
 /**
@@ -23,6 +24,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        
     }
 
     /**
@@ -90,6 +92,11 @@ public class Menu extends javax.swing.JFrame {
         jButton2.setText("Devolução");
 
         jButton3.setText("Sair");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/dvd-mount2.png"))); // NOI18N
 
@@ -398,7 +405,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Classificação1ActionPerformed
 
     private void Funcionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario1ActionPerformed
-     
+     new ConsultarFuncionario().setVisible(true);
     }//GEN-LAST:event_Funcionario1ActionPerformed
 
     private void Cliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cliente2ActionPerformed
@@ -452,6 +459,11 @@ public class Menu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dispose();
+        new Login().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

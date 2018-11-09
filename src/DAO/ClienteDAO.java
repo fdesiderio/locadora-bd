@@ -202,7 +202,7 @@ public class ClienteDAO extends ExecuteSQL{
         }
         
         public List<Cliente> CapturarCliente(int cod) {
-            String sql = "select * from cliente where idcliente =" + cod + " ";
+            String sql = "select idcliente, nome, data_nasc, rg, cpf, email, telefone, bairro, rua, numero, cep from cliente where idcliente =" + cod;
             List<Cliente> lista = new ArrayList<>();
             
             try {
@@ -238,7 +238,7 @@ public class ClienteDAO extends ExecuteSQL{
         public String Alterar_Cliente(Cliente a) {
             String sql = "update cliente set nome = ? ,data_nasc = ? ,rg = ? "
                     + ",cpf = ? ,email = ? ,telefone = ? ,bairro = ? ,rua = ? "
-                    + ", numero = ?,cep = ? wher idcliente = ? ";
+                    + ", numero = ?,cep = ? where idcliente = ? ";
             try {
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
                 

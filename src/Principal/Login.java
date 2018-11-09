@@ -48,6 +48,7 @@ public class Login extends javax.swing.JFrame {
         jProgressBar2 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/locadora.jpg"))); // NOI18N
 
@@ -134,7 +135,7 @@ public class Login extends javax.swing.JFrame {
                             jProgressBar2.setValue(i);
       
                             try {
-                                Thread.sleep(35);
+                                Thread.sleep(5);
                             } catch (Exception e) {
                                 e.getMessage();
                             }
