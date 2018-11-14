@@ -57,6 +57,8 @@ public class CadastrarClassificao extends javax.swing.JFrame {
 
         jLabel4.setText("Preço:");
 
+        jTF_Codigo.setEditable(false);
+
         jButton1.setText("LIMPAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

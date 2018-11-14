@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 19/10/2018 às 13:24
+-- Tempo de geração: 14/11/2018 às 19:09
 -- Versão do servidor: 10.1.30-MariaDB
 -- Versão do PHP: 7.2.1
 
@@ -48,6 +48,14 @@ CREATE TABLE `categoria` (
   `nome` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Fazendo dump de dados para tabela `categoria`
+--
+
+INSERT INTO `categoria` (`idcategoria`, `nome`) VALUES
+(3, 'Infantil'),
+(4, 'Adulto +18');
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +67,15 @@ CREATE TABLE `classificacao` (
   `nome` varchar(20) NOT NULL,
   `preco` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Fazendo dump de dados para tabela `classificacao`
+--
+
+INSERT INTO `classificacao` (`idclassificacao`, `nome`, `preco`) VALUES
+(3, 'Ação', 50),
+(4, 'Romance', 25),
+(5, 'Terror', 40);
 
 -- --------------------------------------------------------
 
@@ -79,6 +96,14 @@ CREATE TABLE `cliente` (
   `numero` int(11) NOT NULL,
   `cep` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Fazendo dump de dados para tabela `cliente`
+--
+
+INSERT INTO `cliente` (`idcliente`, `nome`, `data_nasc`, `rg`, `cpf`, `email`, `telefone`, `bairro`, `rua`, `numero`, `cep`) VALUES
+(10, 'Manoel Carvalho', '54/77/5898', '2155245', '425.236.462-13', 'Manolo@gmail.com', '(88) 99999-9999', 'Centro', 'Rua:São Vicente de Paula', 78, '63460-000'),
+(11, 'Italo Faud De Sena Nogueira', '23/24/5478', '3412525', '535.764.357-82', 'Italofaud@gmail.com', '(88) 99644-5366', 'Vila Cruz', 'Projetada', 2, '63460-000');
 
 -- --------------------------------------------------------
 
@@ -110,6 +135,14 @@ CREATE TABLE `filme` (
   `capa` varchar(80) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Fazendo dump de dados para tabela `filme`
+--
+
+INSERT INTO `filme` (`idfilme`, `titulo`, `ano`, `duracao`, `idcategoria`, `idclassificacao`, `capa`) VALUES
+(4, 'Homem Aranha', 2018, '1:20', 3, 3, 'Homem-Aranha.jpeg'),
+(5, 'Scooby-Doo', 2018, '1:30', 3, 3, 'Scooby-Doo.jpeg');
+
 -- --------------------------------------------------------
 
 --
@@ -128,7 +161,8 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`idfuncionario`, `nome`, `login`, `senha`) VALUES
-(1, 'Administrador', 'que', '123');
+(1, 'Filipi ADM', 'Filipi', 'Dd'),
+(5, 'Manoel Carvalho', 'Neo', '123');
 
 --
 -- Índices de tabelas apagadas
@@ -195,19 +229,19 @@ ALTER TABLE `aluguel`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `classificacao`
 --
 ALTER TABLE `classificacao`
-  MODIFY `idclassificacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idclassificacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `dvd`
@@ -219,13 +253,13 @@ ALTER TABLE `dvd`
 -- AUTO_INCREMENT de tabela `filme`
 --
 ALTER TABLE `filme`
-  MODIFY `idfilme` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfilme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `idfuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idfuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restrições para dumps de tabelas
