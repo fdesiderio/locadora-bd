@@ -5,13 +5,26 @@
  */
 package Principal;
 
+import Visao.Alterar.AlterarCategoria;
+import Visao.Alterar.AlterarClassificacao;
 import Visao.Alterar.AlterarCliente;
+import Visao.Alterar.AlterarFilme;
+import Visao.Alterar.AlterarFuncionario;
 import Visao.Cadastrar.CadastrarCategoria;
+import Visao.Cadastrar.CadastrarClassificao;
 import Visao.Cadastrar.CadastrarCliente;
+import Visao.Cadastrar.CadastrarFilme;
 import Visao.Cadastrar.CadastrarFuncionario;
+import Visao.Consultar.ConsultarCategoria;
+import Visao.Consultar.ConsultarClassificacao;
 import Visao.Consultar.ConsultarCliente;
+import Visao.Consultar.ConsultarFilme;
 import Visao.Consultar.ConsultarFuncionario;
+import Visao.Excluir.ExcluirCategoria;
+import Visao.Excluir.ExcluirClassificacao;
 import Visao.Excluir.ExcluirCliente;
+import Visao.Excluir.ExcluirFilme;
+import Visao.Excluir.ExcluirFuncionario;
 
 /**
  *
@@ -366,6 +379,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void FilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FilmeActionPerformed
         // TODO add your handling code here:
+        new CadastrarFilme().setVisible(true);
     }//GEN-LAST:event_FilmeActionPerformed
 
     private void DVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DVDActionPerformed
@@ -377,7 +391,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_CategoriaActionPerformed
 
     private void ClassificaçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClassificaçãoActionPerformed
-        // TODO add your handling code here:
+        new CadastrarClassificao().setVisible(true);
     }//GEN-LAST:event_ClassificaçãoActionPerformed
 
     private void FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioActionPerformed
@@ -394,14 +408,15 @@ public class Menu extends javax.swing.JFrame {
 
     private void Filme1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filme1ActionPerformed
         // TODO add your handling code here:
+        new ConsultarFilme().setVisible(true);
     }//GEN-LAST:event_Filme1ActionPerformed
 
     private void Categoria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Categoria1ActionPerformed
-        // TODO add your handling code here:
+        new ConsultarCategoria().setVisible(true);
     }//GEN-LAST:event_Categoria1ActionPerformed
 
     private void Classificação1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Classificação1ActionPerformed
-        // TODO add your handling code here:
+        new ConsultarClassificacao().setVisible(true);
     }//GEN-LAST:event_Classificação1ActionPerformed
 
     private void Funcionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario1ActionPerformed
@@ -418,18 +433,19 @@ public class Menu extends javax.swing.JFrame {
 
     private void Filme2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filme2ActionPerformed
         // TODO add your handling code here:
+        new AlterarFilme().setVisible(true);
     }//GEN-LAST:event_Filme2ActionPerformed
 
     private void Categoria2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Categoria2ActionPerformed
-        // TODO add your handling code here:
+        new AlterarCategoria().setVisible(true);
     }//GEN-LAST:event_Categoria2ActionPerformed
 
     private void Classificação2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Classificação2ActionPerformed
-        // TODO add your handling code here:
+        new AlterarClassificacao().setVisible(true);
     }//GEN-LAST:event_Classificação2ActionPerformed
 
     private void Funcionario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario2ActionPerformed
-        // TODO add your handling code here:
+        new AlterarFuncionario().setVisible(true);
     }//GEN-LAST:event_Funcionario2ActionPerformed
 
     private void Cliente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cliente3ActionPerformed
@@ -442,18 +458,19 @@ public class Menu extends javax.swing.JFrame {
 
     private void Filme3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filme3ActionPerformed
         // TODO add your handling code here:
+        new ExcluirFilme().setVisible(true);
     }//GEN-LAST:event_Filme3ActionPerformed
 
     private void Categoria3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Categoria3ActionPerformed
-        // TODO add your handling code here:
+        new ExcluirCategoria().setVisible(true);
     }//GEN-LAST:event_Categoria3ActionPerformed
 
     private void Classificação3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Classificação3ActionPerformed
-        // TODO add your handling code here:
+        new ExcluirClassificacao().setVisible(true);
     }//GEN-LAST:event_Classificação3ActionPerformed
 
     private void Funcionario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario3ActionPerformed
-        // TODO add your handling code here:
+       new ExcluirFuncionario().setVisible(true);
     }//GEN-LAST:event_Funcionario3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

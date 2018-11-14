@@ -22,12 +22,17 @@ public class CategoriaDAO extends ExecuteSQL{
     public CategoriaDAO(Connection con) {
         super(con);
     }
-    public String Inserir_Cliente(Categoria a){
-        String sql = "Insert into cliente values(0,?)";
+    
+    public String Inserir_Categoria(Categoria a){
+        String sql = "Insert into categoria values(0,?)";
+        
         try {
-            PreparedStatement ps = getCon().prepareStatement(sql);
+            PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
             
             ps.setString(1, a.getNome());
+            
+            
+            
             
             if (ps.executeUpdate() > 0) {
                 return "Inserido com sucesso.";
@@ -43,7 +48,7 @@ public class CategoriaDAO extends ExecuteSQL{
             List<Categoria> lista = new ArrayList<>();
             
             try {
-                PreparedStatement ps = getCon().prepareStatement(sql);
+                PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
                 
                 if (rs != null) {
@@ -51,6 +56,8 @@ public class CategoriaDAO extends ExecuteSQL{
                         Categoria a = new Categoria();
                         a.setCodigo(rs.getInt(1));
                         a.setNome(rs.getString(2));
+                      
+                       
                         
                         
                         lista.add(a);
@@ -63,6 +70,63 @@ public class CategoriaDAO extends ExecuteSQL{
                 return null;
             }
             }
+        
+        public List<Categoria> Pesquisar_Cod_Categoria(int cod) {
+            String sql = "select idcategoria,nome from categoria where idcategoria = '"+cod+"'";
+            List<Categoria> lista = new ArrayList<>();
+            
+            try {
+                PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                
+                if (rs != null) {
+                    while (rs.next()) {                        
+                        Categoria a = new Categoria();
+                        a.setCodigo(rs.getInt(1));
+                        a.setNome(rs.getString(2));
+                        
+                        
+                        
+                        
+                        lista.add(a);
+                    }
+                    return lista;
+                } else {
+                    return null;
+                }
+            } catch (Exception e) {
+                return null;
+            }
+            }
+        
+        
+        public List<Categoria> Pesquisar_Nome_Categoria(String nome) {
+            String sql = "select idcategoria,nome from categoria where nome like '%"+ nome +"%'";
+            List<Categoria> lista = new ArrayList<>();
+            
+            try {
+                PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                
+                if (rs != null) {
+                    while (rs.next()) {                        
+                        Categoria a = new Categoria();
+                        a.setCodigo(rs.getInt(1));
+                        a.setNome(rs.getString(2));
+                        
+                        
+                        
+                        lista.add(a);
+                    }
+                    return lista;
+                } else {
+                    return null;
+                }
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        
         public List<Categoria> ListarComboCategoria() {
             String sql = "select nome from categoria order by nome";
             List<Categoria> lista = new ArrayList<>();
@@ -108,6 +172,69 @@ public class CategoriaDAO extends ExecuteSQL{
                 return null;
             }
         }
+        
+        public boolean Testar_Categoria(int cod) {
+            boolean Resultado = false;
+            try {
+                String sql = "select * from categoria where idcategoria = " + cod + "";
+                PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                
+                if (rs !=null) {
+                   while (rs.next()) {
+                       Resultado = true;
+                   } 
+                }
+            } catch (Exception e) {
+                e.getMessage();
+            }
+            return Resultado;
+        }
+        
+        public List<Categoria> CapturarCategoria(int cod) {
+            String sql = "select idcategoria, nome from categoria where idcategoria =" + cod;
+            List<Categoria> lista = new ArrayList<>();
+            
+            try {
+                PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                if (rs != null) {
+                    while (rs.next()) {
+                        Categoria a = new Categoria();
+                        a.setCodigo(rs.getInt(1));
+                        a.setNome(rs.getString(2));
+                        
+                        
+                        
+                        lista.add(a);
+                        
+                    }
+                    return lista;
+                } else {
+                    return null;
+                }
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        
+        public String Alterar_Categoria(Categoria a) {
+            String sql = "update categoria set nome = ?  where idcategoria = ? ";
+            try {
+                PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
+                
+                ps.setString(1, a.getNome());      
+                ps.setInt(2, a.getCodigo());
+                if (ps.executeUpdate() > 0) {
+                    return "Atualizado com sucesso";
+                } else {
+                    return "Erro ao atualizar";
+                }           
+            } catch (Exception e) {
+                return e.getMessage();
+            }
+        }
+                
         public String Excluir(Categoria a) {
             String sql = "delete from categoria where idcategoria = ? and nome = ? ";
             

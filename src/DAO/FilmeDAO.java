@@ -5,49 +5,35 @@
  */
 package DAO;
 
-import java.sql.*;
-import Modelo.Funcionario;
+import Modelo.Filme;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FuncionarioDAO extends ExecuteSQL{
+/**
+ *
+ * @author aluno
+ */
+public class FilmeDAO extends ExecuteSQL{
 
-    public FuncionarioDAO(Connection con) {
+    public FilmeDAO(Connection con) {
         super(con);
     }
-    
-    public boolean Logar(String login, String senha) {
-        boolean finalResult = false;
-        try {
-            String consulta = "select login, senha from funcionario "
-                    + "where login = '" + login + "' and senha = '" + senha + "'";
-            PreparedStatement ps = getCon().prepareStatement(consulta);
-            ResultSet rs = ps.executeQuery();
-            
-            if (rs != null) {
-                while (rs.next()) {
-                Funcionario a = new Funcionario();
-                a.setLogin(rs.getString(1));
-                a.setSenha(rs.getString(2));
-                finalResult = true;    
-                }
-            }
-        } catch (Exception e) {
-            e.getMessage();
-        }
-        return finalResult;
-    }
-    
-    public String Inserir_Funcionario(Funcionario a){
-        String sql = "Insert into funcionario values(0,?,?,?)";
+    public String Inserir_Filme(Filme a){
+        String sql = "Insert into filme values(0,?,?,?,?,?,?)";
         
         try {
             PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
             
-            ps.setString(1, a.getNome());
-            ps.setString(2, a.getLogin());
-            ps.setString(3, a.getSenha());
-            
+            ps.setString(1, a.getTitulo());
+            ps.setInt(2, a.getAno());
+            ps.setString(3, a.getDuracao());
+            ps.setInt(4, a.getCod_categoria());
+            ps.setInt(5, a.getCod_classificacao());
+            ps.setString(6, a.getCapa());
             
             if (ps.executeUpdate() > 0) {
                 return "Inserido com sucesso.";
@@ -58,9 +44,9 @@ public class FuncionarioDAO extends ExecuteSQL{
             return e.getMessage();
         }
     }
-        public List<Funcionario> ListarFuncionario() {
-            String sql = "select idfuncionario,nome,login,senha from funcionario";
-            List<Funcionario> lista = new ArrayList<>();
+        public List<Filme> ListarFilme() {
+            String sql = "select idfilme,titulo,ano,duracao,idcategoria,idclassificacao,capa from filme";
+            List<Filme> lista = new ArrayList<>();
             
             try {
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
@@ -68,12 +54,14 @@ public class FuncionarioDAO extends ExecuteSQL{
                 
                 if (rs != null) {
                     while (rs.next()) {                        
-                        Funcionario a = new Funcionario();
-                        a.setCod(rs.getInt(1));
-                        a.setNome(rs.getString(2));
-                        a.setLogin(rs.getString(3));
-                        a.setSenha(rs.getString(4));
-                        
+                        Filme a = new Filme();
+                        a.setCodigo(rs.getInt(1));
+                        a.setTitulo(rs.getString(2));
+                        a.setAno(rs.getInt(3));
+                        a.setDuracao(rs.getString(4));
+                        a.setCod_categoria(rs.getInt(5));
+                        a.setCod_classificacao(rs.getInt(6));
+                        a.setCapa(rs.getString(7));
                         
                         lista.add(a);
                     }
@@ -86,9 +74,9 @@ public class FuncionarioDAO extends ExecuteSQL{
             }
             }
         
-        public List<Funcionario> Pesquisar_Cod_Funcionario(int cod) {
-            String sql = "select idfuncionario,nome,login,senha from funcionario where idfuncionario = '"+cod+"'";
-            List<Funcionario> lista = new ArrayList<>();
+        public List<Filme> Pesquisar_Cod_Filme(int cod) {
+            String sql = "select idfilme,titulo,ano,duracao,idcategoria,idclassificacao,capa from filme where idfilme = '"+cod+"'";
+            List<Filme> lista = new ArrayList<>();
             
             try {
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
@@ -96,12 +84,14 @@ public class FuncionarioDAO extends ExecuteSQL{
                 
                 if (rs != null) {
                     while (rs.next()) {                        
-                        Funcionario a = new Funcionario();
-                        a.setCod(rs.getInt(1));
-                        a.setNome(rs.getString(2));
-                        a.setLogin(rs.getString(3));
-                        a.setSenha(rs.getString(4));
-                        
+                        Filme a = new Filme();
+                        a.setCodigo(rs.getInt(1));
+                        a.setTitulo(rs.getString(2));
+                        a.setAno(rs.getInt(3));
+                        a.setDuracao(rs.getString(4));
+                        a.setCod_categoria(rs.getInt(5));
+                        a.setCod_classificacao(rs.getInt(6));
+                        a.setCapa(rs.getString(7));
                         
                         lista.add(a);
                     }
@@ -115,9 +105,9 @@ public class FuncionarioDAO extends ExecuteSQL{
             }
         
         
-        public List<Funcionario> Pesquisar_Nome_Funcionario(String nome) {
-            String sql = "select idfuncionario,nome,login,senha from funcionario where nome like '%"+ nome +"%'";
-            List<Funcionario> lista = new ArrayList<>();
+        public List<Filme> Pesquisar_Nome_Filme(String nome) {
+            String sql = "select idfilme,titulo,ano,duracao,idcategoria,idclassificacao,capa from filme where titulo like '%"+ nome +"%'";
+            List<Filme> lista = new ArrayList<>();
             
             try {
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
@@ -125,12 +115,14 @@ public class FuncionarioDAO extends ExecuteSQL{
                 
                 if (rs != null) {
                     while (rs.next()) {                        
-                        Funcionario a = new Funcionario();
-                        a.setCod(rs.getInt(1));
-                        a.setNome(rs.getString(2));
-                        a.setLogin(rs.getString(3));
-                        a.setSenha(rs.getString(4));
-                        
+                        Filme a = new Filme();
+                        a.setCodigo(rs.getInt(1));
+                        a.setTitulo(rs.getString(2));
+                        a.setAno(rs.getInt(3));
+                        a.setDuracao(rs.getString(4));
+                        a.setCod_categoria(rs.getInt(5));
+                        a.setCod_classificacao(rs.getInt(6));
+                        a.setCapa(rs.getString(7));
                         
                         lista.add(a);
                     }
@@ -143,17 +135,17 @@ public class FuncionarioDAO extends ExecuteSQL{
             }
         }
         
-        public List<Funcionario> ListarComboFuncionario() {
-            String sql = "select nome from funcionario order by nome";
-            List<Funcionario> lista = new ArrayList<>();
+        public List<Filme> ListarComboFilme() {
+            String sql = "select titulo from filme order by titulo";
+            List<Filme> lista = new ArrayList<>();
             try {
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
                 
                 if (rs != null) {
                     while (rs.next()) {
-                    Funcionario a = new Funcionario();
-                    a.setNome(rs.getString(1));
+                    Filme a = new Filme();
+                    a.setTitulo(rs.getString(1));
                     lista.add(a);
                     }
                     return lista;
@@ -166,9 +158,9 @@ public class FuncionarioDAO extends ExecuteSQL{
         
             }
         }
-        public List<Funcionario> ConsultaCodigoFuncionario(String nome){
-            String sql = "select idfuncionario from funcionario where nome = '" + nome + "'";
-            List<Funcionario> lista = new ArrayList<>();
+        public List<Filme> ConsultaCodigoFilme(String nome){
+            String sql = "select idfilme from filme where titulo = '" + nome + "'";
+            List<Filme> lista = new ArrayList<>();
             
             try {
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
@@ -176,8 +168,8 @@ public class FuncionarioDAO extends ExecuteSQL{
                 
                 if (rs != null) {
                     while (rs.next()) {                        
-                        Funcionario a = new Funcionario();
-                        a.setCod(rs.getInt(1));
+                        Filme a = new Filme();
+                        a.setCodigo(rs.getInt(1));
                         lista.add(a);
                     }
                     return lista;
@@ -189,10 +181,10 @@ public class FuncionarioDAO extends ExecuteSQL{
             }
         }
         
-        public boolean Testar_Funcionario(int cod) {
+        public boolean Testar_Filme(int cod) {
             boolean Resultado = false;
             try {
-                String sql = "select * from funcionario where idfuncionario = " + cod + "";
+                String sql = "select * from filme where idfilme = " + cod + "";
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
                 
@@ -207,21 +199,24 @@ public class FuncionarioDAO extends ExecuteSQL{
             return Resultado;
         }
         
-        public List<Funcionario> CapturarFuncionario(int cod) {
-            String sql = "select idfuncionario, nome, login, senha from funcionario where idfuncionario =" + cod;
-            List<Funcionario> lista = new ArrayList<>();
+        public List<Filme> CapturarFilme(int cod) {
+            String sql = "select idfilme, titulo, ano, duracao, idcategoria, idclassificacao, capa from filme where idfilme =" + cod;
+            List<Filme> lista = new ArrayList<>();
             
             try {
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
                 if (rs != null) {
                     while (rs.next()) {
-                        Funcionario a = new Funcionario();
-                        a.setCod(rs.getInt(1));
-                        a.setNome(rs.getString(2));
-                        a.setLogin(rs.getString(3));
-                        a.setSenha(rs.getString(4));
-                        
+                        Filme a = new Filme();
+                        a.setCodigo(rs.getInt(1));
+                        a.setTitulo(rs.getString(2));
+                        a.setAno(rs.getInt(3));
+                        a.setDuracao(rs.getString(4));
+                        a.setCod_categoria(rs.getInt(5));
+                        a.setCod_classificacao(rs.getInt(6));
+                        a.setCapa(rs.getString(7));
+                      
                         
                         lista.add(a);
                         
@@ -235,15 +230,20 @@ public class FuncionarioDAO extends ExecuteSQL{
             }
         }
         
-        public String Alterar_Funcionario(Funcionario a) {
-            String sql = "update funcionario set nome = ? ,login = ? ,senha = ?  where idfuncionario = ? ";
+        public String Alterar_Filme(Filme a) {
+            String sql = "update filme set titulo = ? ,ano = ? ,duracao = ? "
+                    + ",idcategoria = ? ,idclassificacao = ? ,capa = ?  where idfilme = ? ";
             try {
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
                 
-                ps.setString(1, a.getNome());
-                ps.setString(2, a.getLogin());
-                ps.setString(3, a.getSenha());
-                ps.setInt(4, a.getCod());
+                ps.setString(1, a.getTitulo());
+                ps.setInt(2, a.getAno());
+                ps.setString(3, a.getDuracao());
+                ps.setInt(4, a.getCod_categoria());
+                ps.setInt(5, a.getCod_classificacao());
+                ps.setString(6, a.getCapa());
+                
+                ps.setInt(7, a.getCodigo());
                 if (ps.executeUpdate() > 0) {
                     return "Atualizado com sucesso";
                 } else {
@@ -254,13 +254,13 @@ public class FuncionarioDAO extends ExecuteSQL{
             }
         }
                 
-        public String Excluir(Funcionario a) {
-            String sql = "delete from funcionario where idfuncionario = ? and nome = ? ";
+        public String Excluir(Filme a) {
+            String sql = "delete from filme where idfilme = ? and titulo = ? ";
             
             try {
                 PreparedStatement ps = (PreparedStatement) getCon().prepareStatement(sql);
-                ps.setInt(1, a.getCod());
-                ps.setString(2, a.getNome());
+                ps.setInt(1, a.getCodigo());
+                ps.setString(2, a.getTitulo());
                 if (ps.executeUpdate() > 0) {
                     return "Excluindo com sucesso.";
                 } else {
@@ -271,3 +271,11 @@ public class FuncionarioDAO extends ExecuteSQL{
             }
         }
 }
+
+
+
+
+
+
+
+

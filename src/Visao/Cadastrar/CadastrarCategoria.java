@@ -10,6 +10,8 @@ import DAO.ClassificacaoDAO;
 import DAO.Conexao;
 import Modelo.Categoria;
 import Modelo.Classificacao;
+import Principal.Login;
+import Principal.Menu;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
@@ -56,6 +58,11 @@ public class CadastrarCategoria extends javax.swing.JFrame {
         jLabel3.setText("Nome:");
 
         jButton1.setText("LIMPAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("CANCELAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -119,27 +126,45 @@ public class CadastrarCategoria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        new Login().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    String nome = jTF_Nome.getText();
-    
-    if (nome.equals("")) {
-        JOptionPane.showMessageDialog(null, "Nenhum campo popde estar vazio", "Vídeo Locadora", 
-                JOptionPane.WARNING_MESSAGE);
-    } else {
-       Connection con = Conexao.AbrirConexao();
-        CategoriaDAO sql = new CategoriaDAO(con);
-        Categoria a = new Categoria();
-        a.setNome(nome);
-        sql.Inserir_Cliente(a);
-        Conexao.FecharConexao(con);
-        jTF_Nome.setText("");
-        JOptionPane.showMessageDialog(null, "Cadastrado com sucesso", "Vídeo Locadora", 
-                JOptionPane.WARNING_MESSAGE);
-    }
+         String nome = jTF_Nome.getText();
+        
+        
+        if (nome.equals("")) {
+        
+            JOptionPane.showMessageDialog(null, "nenhum campo pode estar vazio",
+                    "Vídeo Locadora", JOptionPane.WARNING_MESSAGE);
+        
+        } else {
+            
+            Connection con = Conexao.AbrirConexao();
+            CategoriaDAO sql = new CategoriaDAO(con);
+            Categoria a = new Categoria();
+            
+            a.setNome(nome);
+            
+            
+            
+            sql.Inserir_Categoria(a);
+            Conexao.FecharConexao(con);
+            
+            jTF_Nome.setText("");
+            
+            
+            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso", "Vídeo Locadora", JOptionPane.INFORMATION_MESSAGE);
+            dispose();
+            new Menu().setVisible(true);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jTF_Codigo.setText("");
+        jTF_Nome.setText("");
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

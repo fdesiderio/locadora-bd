@@ -5,9 +5,9 @@
  */
 package Visao.Consultar;
 
-import DAO.ClienteDAO;
+import DAO.ClassificacaoDAO;
 import DAO.Conexao;
-import Modelo.Cliente;
+import Modelo.Classificacao;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,89 +17,82 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Aluno
  */
-public class ConsultarCliente extends javax.swing.JFrame {
+public class ConsultarClassificacao extends javax.swing.JFrame {
 
     /**
-     * Creates new form ConsultarFuncionario
+     * Creates new form ConsultarClassificacao
      */
-    public ConsultarCliente() {
+    public ConsultarClassificacao() {
         initComponents();
         AtualizaTable();
     }
     
     private void AtualizaTable() {
     Connection con = Conexao.AbrirConexao();
-    ClienteDAO bd = new ClienteDAO(con);
-    List<Cliente> lista = new ArrayList<>();
-    lista = bd.ListarCliente();
+    ClassificacaoDAO bd = new ClassificacaoDAO(con);
+    List<Classificacao> lista = new ArrayList<>();
+    lista = bd.ListarClassificacao();
     DefaultTableModel tbm = (DefaultTableModel) jTable1.getModel();
         while (tbm.getRowCount() > 0) {            
             tbm.removeRow(0);
         }
         int i = 0;
-        for (Cliente tab : lista) {
+        for (Classificacao tab : lista) {
             tbm.addRow(new String[i]);
             jTable1.setValueAt(tab.getCodigo(), i, 0);
             jTable1.setValueAt(tab.getNome(), i, 1);
-            jTable1.setValueAt(tab.getRG(), i, 2);
-            jTable1.setValueAt(tab.getCPF(), i, 3);
-            jTable1.setValueAt(tab.getTelefone(), i, 4);
-            jTable1.setValueAt(tab.getEmail(), i, 5);
+            jTable1.setValueAt(tab.getPreco(), i, 2);
+            
             
             i++;
         }
         Conexao.FecharConexao(con);
     
 }
-    private void Consulta_Nome_Cliente() {
+    private void Consulta_Nome_Classificacao() {
     Connection con = Conexao.AbrirConexao();
-    ClienteDAO bd = new ClienteDAO(con);
-    List<Cliente> lista = new ArrayList<>();
-    lista = bd.Pesquisar_Nome_Cliente(nome.getText());
+    ClassificacaoDAO bd = new ClassificacaoDAO(con);
+    List<Classificacao> lista = new ArrayList<>();
+    lista = bd.Pesquisar_Nome_Classificacao(nome.getText());
     DefaultTableModel tbm = (DefaultTableModel) jTable1.getModel();
         while (tbm.getRowCount() > 0) {            
             tbm.removeRow(0);
         }
         int i = 0;
-        for (Cliente tab : lista) {
+        for (Classificacao tab : lista) {
             tbm.addRow(new String[i]);
-           jTable1.setValueAt(tab.getCodigo(), i, 0);
+            jTable1.setValueAt(tab.getCodigo(), i, 0);
             jTable1.setValueAt(tab.getNome(), i, 1);
-            jTable1.setValueAt(tab.getRG(), i, 2);
-            jTable1.setValueAt(tab.getCPF(), i, 3);
-            jTable1.setValueAt(tab.getTelefone(), i, 4);
-            jTable1.setValueAt(tab.getEmail(), i, 5);
+            jTable1.setValueAt(tab.getPreco(), i, 2);
+           
             
             i++;
         }
         Conexao.FecharConexao(con);
     
 }
-    private void Consulta_Cod_Cliente() {
+    private void Consulta_Cod_Classificacao() {
     Connection con = Conexao.AbrirConexao();
-    ClienteDAO bd = new ClienteDAO(con);
-    List<Cliente> lista = new ArrayList<>();
-    lista = bd.Pesquisar_Cod_Cliente(Integer.parseInt(cod.getText()));
+    ClassificacaoDAO bd = new ClassificacaoDAO(con);
+    List<Classificacao> lista = new ArrayList<>();
+    lista = bd.Pesquisar_Cod_Classificacao(Integer.parseInt(cod.getText()));
     DefaultTableModel tbm = (DefaultTableModel) jTable1.getModel();
         while (tbm.getRowCount() > 0) {            
             tbm.removeRow(0);
         }
         int i = 0;
-        for (Cliente tab : lista) {
+        for (Classificacao tab : lista) {
             tbm.addRow(new String[i]);
             jTable1.setValueAt(tab.getCodigo(), i, 0);
             jTable1.setValueAt(tab.getNome(), i, 1);
-            jTable1.setValueAt(tab.getRG(), i, 2);
-            jTable1.setValueAt(tab.getCPF(), i, 3);
-            jTable1.setValueAt(tab.getTelefone(), i, 4);
-            jTable1.setValueAt(tab.getEmail(), i, 5);
+            jTable1.setValueAt(tab.getPreco(), i, 2);
+            
           
             i++;
         }
         Conexao.FecharConexao(con);
     
-}  
-    
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -111,18 +104,36 @@ public class ConsultarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         nome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         cod = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Pesquisa por nome:");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Nome", "Preço"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,28 +158,11 @@ public class ConsultarCliente extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Cliente", "RG", "CPF", "Telefone", "Email"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        cod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,17 +172,17 @@ public class ConsultarCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cod, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(cod, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jScrollPane1)
         );
@@ -196,35 +190,39 @@ public class ConsultarCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cod, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cod)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nome)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Consulta_Cod_Classificacao();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codActionPerformed
         // TODO add your handling code here:
-        Consulta_Nome_Cliente();
+    }//GEN-LAST:event_codActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Consulta_Nome_Classificacao();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         AtualizaTable();
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    Consulta_Cod_Cliente();   // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,20 +241,20 @@ public class ConsultarCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarClassificacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarClassificacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarClassificacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarClassificacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultarCliente().setVisible(true);
+                new ConsultarClassificacao().setVisible(true);
             }
         });
     }
